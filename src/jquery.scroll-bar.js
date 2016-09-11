@@ -92,8 +92,8 @@
             oThumb[options.axis] = Math.min(
                 oTrack[options.axis],
                 Math.max(0, ( options.size_thumb == 'auto' ?
-                        (oTrack[options.axis] * oContent.ratio) :
-                        options.size_thumb )
+                    (oTrack[options.axis] * oContent.ratio) :
+                    options.size_thumb )
                 )
             );
 
@@ -217,6 +217,8 @@
                 iScroll = iPosition.now * oScrollBar.ratio;
                 oContent.obj.css(sDirection, -iScroll);
                 oThumb.obj.css(sDirection, iPosition.now);
+
+                options.onScroll(oContent[options.axis], oViewPort[options.axis], iScroll);
             }
             return false;
         };
